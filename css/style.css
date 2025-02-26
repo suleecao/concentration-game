@@ -28,7 +28,7 @@ body {
  	min-height: 100 vh;
 }
   
-  .board-5-by-6 {
+  .gameBoard {
     display: grid;
     /* makes grid too smallgrid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
