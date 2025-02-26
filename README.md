@@ -4,6 +4,12 @@ The game features a 5 by 6 grid and its aim is for the user to find as many matc
 
 The game will play a sound when the player wins and a different one if there have been too many tries.
 
+<<<<<<< HEAD
 The game is built using HTML, CSS, and Javascript. I selected it as a simpler project because I see some similarities between it and the tic-tac-toe exercise from earlier.
 
 I grabbed some audio files from
+=======
+The game is built using HTML, CSS, and Javascript. I selected it as a simpler project because I see some similarities between it and the tic-tac-toe exercise from earlier. 
+
+I grabbed some audio files from 
+>>>>>>> 63a7a47e25e989ca80135ab9c3117aa1b8c947b2
