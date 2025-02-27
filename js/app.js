@@ -33,7 +33,6 @@ function fisherYatesShuffle(array) {
     // Swap elements at indices i and j
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  
   return shuffled;
 }
 
@@ -49,12 +48,33 @@ const squares = document.querySelectorAll('.sqr');
 /*-------------------------------- Functions --------------------------------*/
 //clear button #reset-game
 //function reset() {
+
 //}
-//flipping an element
+//
+// flipping an element
 //if element is flipped, can't flip it again
-//message: win or lose
-//function accuracy ()
+//remove event listener for clicked squares
+
+
+//check accuracy
+
+function accuracyRate () {
+    if (correctMatches === 0) {
+    return 0;
+    }
+    return (correctMatches/totalTries) *100;
+}
+
+//correctMoves/totalTries
+//
+///}
+
+//if (accuracy() < .55) {
+//
+// gameOver = true}
 //music plays, if win music 1, if lose, music 2
+
+//function playWinMusic() {}
 
 //grab all elements with class .sqr  assign them an image
 //flip-toggle between visible or no
