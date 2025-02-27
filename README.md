@@ -11,3 +11,8 @@ The game is built using HTML, CSS, and Javascript. I selected it as a simpler pr
 
 Attributions: information about the Fisher-Yates shuffle was provided here:
 [GeeksforGeeks](https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/)
+
+
+
+
+screenshot not working, tested in preview

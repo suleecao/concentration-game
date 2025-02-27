@@ -32,20 +32,25 @@ body {
   
   .gameBoard {
     display: grid;
-    /* makes grid too smallgrid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    */
     grid-template-columns: repeat(5, 100px);
     grid-template-rows: repeat(6, 100px);
     grid-gap: 0px;
     margin-bottom: 20px;
+    margin: 0 auto;
+    justify-content: center;
 }
-  
+
+  .back img {
+    width: 100px;
+    height: 100px;
+
+  }
   .sqr {
 	background-color: rgba(229, 229, 229, 0.5);
 	border: 1px solid rgba(128, 128, 128, 0.5);
 	padding: 0.25em;
 	text-align: center;
+  max-width: 300px;
 }
 	
 	.reset-button-container {

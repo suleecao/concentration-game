@@ -2,15 +2,17 @@
 let correctMatches = 0;
 let totalTries = 0;
 let gameOver = false;
+let firstGuess = null;
 
 
 /*---------------------------- Variables (state) ----------------------------*/
 //let board;
 
+
  
 //write a for loop i <= 29, grab each element by ID and assign them a src
 //for (let i =0; i <=29; i++) {
-let img;
+
 //img.style.display = 'none';
 //gameBoard.append(img) does this have dot notation?
 
@@ -40,7 +42,7 @@ function fisherYatesShuffle(array) {
 
 /*------------------------ Cached Element References ------------------------*/
 //const message = document.querySelector('#message');
-//const gameBoard = document.querySelector('.gameBoard');
+const gameBoard = document.getElementById('.gameBoard');
 const squares = document.querySelectorAll('.sqr');
 //const resetButton = document.querySelector('#reset-game')
 
@@ -49,30 +51,69 @@ const squares = document.querySelectorAll('.sqr');
 //clear button #reset-game
 //function reset() {
 
-//}
+//
 //
 // flipping an element
 //if element is flipped, can't flip it again
 //remove event listener for clicked squares
 
-
-//check accuracy
-
-function accuracyRate () {
-    if (correctMatches === 0) {
-    return 0;
-    }
-    return (correctMatches/totalTries) *100;
+for (let i =0; i <30, i++) {
+  const img = document.createElement('img');
+  img.src ='./images/geode closed.jpg';
+  square.appendChild(img);
 }
 
-//correctMoves/totalTries
-//
-///}
 
-//if (accuracy() < .55) {
 //
-// gameOver = true}
-//music plays, if win music 1, if lose, music 2
+
+//Does this have all the same conditions as reset?
+set game initalization function
+accuracyRate(); 
+set all cards to geode closed image
+set all evt listeners to on
+shuffle array
+
+  }
+}
+
+
+gamePlay() 
+if a square is clicked, set its evt Listener to -off- for now
+let the first clicked be square 1
+let the second one clicked be square 2
+flip 2 squares
+if square1.imagesource === square2.imagesource
+return "it's a match!";
+disable evt listeners on those two squares
+else 
+return "Nope"; turn evt listeners back on for the 2 clicked squares
+
+
+//check accuracy
+function accuracyRate () {
+  if (correctMatches === 0) {
+  return 0;
+  }
+  else {
+    return (correctMatches/totalTries) *100;
+  }
+}
+
+
+//
+function endGame() {
+  accuracyRate();
+  if(all cards are flipped || accuracyRate is <= 55/100) {
+    gameOver = true;
+    square.removeEventListner('click', ());
+  }
+  turn off all evt Listeners
+ 
+
+  //music plays, if win music 1, if lose, music 2
+}
+//
+
 
 //function playWinMusic() {}
 
@@ -82,15 +123,6 @@ function accuracyRate () {
 // 	square.style.backgroundImage = `url('../images/image${index}.jpg')`;
 // 	});
 // 	
-
-
-
-squares.forEach(square => {
-	square.addEventListener('click',()=> {
-		img.style.display = img.style.display === 'none'
-			? 'block' : 'none';
-  	});
-});
 
 
 	
@@ -103,18 +135,26 @@ for (let i =0; i < halfLength; i ++) {
 /////////////`url('${imagePath}')`;
 }
 
-//"url(`../images/image${i}.jpg`)"
 
 
 
 	
 	//('../assets/audio/cat.mp3');
+
 //for (let i =15; i <=29; i++) 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// //resetButton.addEventListener('click', () => {
-// 	reset();
-// 	});
+resetButton.addEventListener('click', () => {
+  reset();
+});
+
+
+squares.forEach(square => {
+  square.addEventListener('click', () => {
+    img.style.display = img.style.display === 'none'
+      ? 'block' : 'none';
+  });
+});
 
