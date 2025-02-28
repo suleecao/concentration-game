@@ -47,7 +47,10 @@ function FyShuffle(array) {
   return shuffled;
 }
 
+FyShuffle(cards);
+
 let cardEls = document.querySelectorAll('.faceDownCard');
+
 let correctMatches = 0;
 let totalTries = 0;
 let gameOver = false;
@@ -57,30 +60,29 @@ let guessCount = 0;
 let flippedCards = 0;
 
 
-FyShuffle(cards);
 
 //console.log which index clicked
 cardEls.forEach(function (el, index) {
   el.addEventListener('click', function () {
+    if (gameOver) return;
     if (index === firstGuess || cards[index].matched === true || !canGuess) {
       console.log('same card clicked twice');
-      return
+      return;
     }
     let clickedCard = cards[index]
     el.setAttribute('src', clickedCard.image);
 
     if (firstGuess === null) {
       firstGuess = index;
-      guessCount++
-      totalTries++;
     } else {
       if (cards[firstGuess].value === cards[index].value) {
         console.log('match');
         cards[firstGuess].matched = true;
-        cards[index].matched === true;
+        cards[index].matched = true;
         firstGuess = null;  //match
         flippedCards += 2;
-        correctMatches++
+        correctMatches++;
+        totalTries++; ////maybe
         updateMessage();
         //check for win, reset
         if (flippedCards === cards.length) {
@@ -104,34 +106,34 @@ cardEls.forEach(function (el, index) {
           canGuess = true;
         }, 1500)
       }
-
+      if (!gameOver) guessCount++;
     }
   });
 });
 
 function resetGame() {
   canGuess = false;
-  setTimeout(() => {}, 2000);
+  setTimeout(() => {
+    firstGuess = null;
+    canGuess = true;
+    flippedCards = 0;
+    guessCount = 0;
+    correctMatches = 0;
+    totalTries = 0;
+    gameOver = false;
 
-  firstGuess = null;
-  canGuess = true;
-  flippedCards = 0;
-  guessCount = 0;
-  correctMatches = 0;
-  totalTries = 0;
-  gameOver = false;
+    cards.forEach((card, index) => {
+      card.matched = false;
+    });
 
-  cards.forEach((card, index) => {
-    card.matched = false;
-  });
+    FyShuffle(cards);
 
-  FyShuffle(cards); // Shuffle the cards array
+    cardEls.forEach(function (el, index) {
+      el.setAttribute('src', 'images/geode closed.jpg');
+    });
 
-  cardEls.forEach(function (el, index) {
-    el.setAttribute('src', "images/geode closed.jpg"); //reset to closed image.
-  });
-
-  updateMessage();
+    updateMessage();
+  }, 2000); // (2 second timeout)
 }
 
 
@@ -141,7 +143,7 @@ document.querySelector("#reset").addEventListener('click', function () {
 
 //check accuracy
 function accuracyRate() {
-  if (correctMatches === 0) {
+  if (totalTries === 0) {
     return 0;
   }
   else {
