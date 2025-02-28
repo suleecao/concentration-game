@@ -15,4 +15,5 @@
 Attributions: The function for the  Fisher-Yates shuffle was provided here:
 [GeeksforGeeks](https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/)
 
-
+**Future Thoughts**
+I would like to make dark mode with a toggle, to add a sound that plays when the player loses, and another button to switch themes, possibly polished stones. It would also be thoughtful to let the player select the grid size between small (20 cards), medium (30 cards), and large (40 cards) with a pop up window at the beginning on a landing screen.
